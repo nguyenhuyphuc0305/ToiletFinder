@@ -4,10 +4,6 @@ const request = require("request")
 
 const router = express.Router()
 
-router.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/html/index.html"))
-})
-
 router.get("/getLoc", (req, res) => {
     URL = "https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&offset=0&ada=false&unisex=true&lat=" + req.query.lat + "&lng=" + req.query.lng
     request.get(URL, (err,response, body) => {

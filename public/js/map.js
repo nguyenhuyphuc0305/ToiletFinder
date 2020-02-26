@@ -1,3 +1,4 @@
+var getLoc = document.getElementById("getLoc");
 let lat, lng;
 
 let mymap = L.map('mapid').setView([51.505, -0.09], 13);
@@ -11,26 +12,26 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     accessToken: 'pk.eyJ1IjoiY2h1Y3VueGFuaDJrIiwiYSI6ImNrNzJ0YmdjcjA1dmozZ24xbjduMWcxNWYifQ.FQ24h62XknEmmVXQ_9k6gg'
 }).addTo(mymap);
 
-$("#getLoc").click(() => {
+getLoc.addEventListener("click", () => {
     if (!navigator.geolocation) {
-        console.log("Navigator is not supported in this browser.")
+        console.log("Navigator is not supported in this browser.");
         return 
     }
     navigator.geolocation.getCurrentPosition((position) => {
-        lat = position.coords.latitude
-        lng = position.coords.longitude
+        lat = position.coords.latitude;
+        lng = position.coords.longitude;
 
-        let xhr = new XMLHttpRequest()
+        let xhr = new XMLHttpRequest();
         xhr.onreadystatechange = () => {
             if (xhr.readyState == 4 && xhr.status == 200) {
-                let data = JSON.parse(xhr.responseText)
-                console.log(data)
+                let data = JSON.parse(xhr.responseText);
+                console.log(data);
             }
         }
 
-        var URL = "./getLoc?lat=" + lat + "&lng=" + lng
-        xhr.open("GET", URL, true)
-        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8")
-        xhr.send() 
-    })
-})
+        var query = "./getLoc?lat=" + lat + "&lng=" + lng;
+        xhr.open("GET", query, true);
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xhr.send();
+    });
+});

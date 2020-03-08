@@ -7,12 +7,81 @@
         <link rel="stylesheet" href="/css/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>  
-        <link rel="stylesheet" href="./css/index.css">
+        <link rel="stylesheet" href="./css/index.css">  
     </head>
     <body>
-        <p>Hello</p>
-        <button type="button" id="getLoc" class="btn btn-secondary">Get Location</button>
-        <div id="mapid"></div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="location col-md-3 px-0" >
+                    <div class="location-image">
+                        <img src="./images/test_image.jpg" alt="test_image">
+                    </div>
+                    <div class="location-description">
+                        <div class="px-4 py-3">
+                            <h3 class="mb-0">POKE-MAN</h3>
+                            <div class="row px-3 mt-1" style="height: 26px;">
+                                <div class="mr-3" style="padding-top: 3px;">
+                                    <p>3.9</p>
+                                </div>
+                                <div class="containerdiv">
+                                    <div>
+                                        <img src="https://image.ibb.co/jpMUXa/stars_blank.png" alt="img">
+                                        </div>
+                                        <div class="cornerimage" style="width:75%;">
+                                        <img src="https://image.ibb.co/caxgdF/stars_full.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row px-3 mt-1">
+                                <p class="mb-1">Direction: <span>"Go in through the bookstore, exit the bookstore into the student center, there will be 4 couch/tables to your left, behind those are two unisex accessible stalls."</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-divider"></div>
+
+                    <div class="location-comment">
+                        <div class="px-4 py-3" style="height: 100%;">
+                            <h4>Comment</h4>
+                            <div class="comments-container">
+                                <div class="comment-block px-3 py-3 mb-3">
+                                    <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto temporibus iste nostrum dolorem natus recusandae incidunt voluptatum. Eligendi voluptatum ducimus architecto tempore, quaerat explicabo veniam fuga corporis totam reprehenderit quasi
+                                        sapiente modi tempora at perspiciatis mollitia, dolores voluptate. Cumque, corrupti?</p>
+                                    <div class="bottom-comment">
+                                        <div class="comment-date">Aug 24, 2014 @ 2:35 PM</div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="comment-block px-3 py-3 mb-3">
+                                    <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto temporibus iste nostrum dolorem natus recusandae incidunt voluptatum. Eligendi voluptatum ducimus architecto tempore, quaerat explicabo veniam fuga corporis totam reprehenderit quasi
+                                        sapiente modi tempora at perspiciatis mollitia, dolores voluptate. Cumque, corrupti?</p>
+                                    <div class="bottom-comment">
+                                        <div class="comment-date">Aug 24, 2014 @ 2:35 PM</div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="comment-block px-3 py-3 mb-3">
+                                    <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto temporibus iste nostrum dolorem natus recusandae incidunt voluptatum. Eligendi voluptatum ducimus architecto tempore, quaerat explicabo veniam fuga corporis totam reprehenderit quasi
+                                        sapiente modi tempora at perspiciatis mollitia, dolores voluptate. Cumque, corrupti?</p>
+                                    <div class="bottom-comment">
+                                        <div class="comment-date">Aug 24, 2014 @ 2:35 PM</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="add-comment">
+                                <div class="comment-block px-3 py-3 mb-3">
+                                    <textarea name="" id="" cols="30" rows="3" placeholder="Add comment..." style="width: 100%;" form="usrform"></textarea>
+                                    <form action="" if="comment-form">
+                                        <input type="submit" class="submit-comment btn btn-secondary float-right" value="Submit">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9" id="mapid"></div>
+            </div>
+        </div> 
     </body>
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>

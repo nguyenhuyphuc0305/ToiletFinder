@@ -11,7 +11,7 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     accessToken: 'pk.eyJ1IjoiY2h1Y3VueGFuaDJrIiwiYSI6ImNrNzJ0YmdjcjA1dmozZ24xbjduMWcxNWYifQ.FQ24h62XknEmmVXQ_9k6gg'
 }).addTo(mymap);
 
-$("#getLoc").click(() => {
+$(document).ready(() => {
     if (!navigator.geolocation) {
         console.log("Navigator is not supported in this browser.")
         return 
@@ -19,6 +19,8 @@ $("#getLoc").click(() => {
     navigator.geolocation.getCurrentPosition((position) => {
         lat = position.coords.latitude
         lng = position.coords.longitude
+
+        mymap.panTo(new L.LatLng(lat, lng));
 
         let xhr = new XMLHttpRequest()
         xhr.onreadystatechange = () => {

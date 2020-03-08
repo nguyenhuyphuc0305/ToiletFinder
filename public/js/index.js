@@ -26,7 +26,9 @@ $(document).ready(() => {
         xhr.onreadystatechange = () => {
             if (xhr.readyState == 4 && xhr.status == 200) {
                 let data = JSON.parse(xhr.responseText)
-                console.log(data)
+                for (let i = 0; i < data.length; i++) {
+                    let marker = L.marker([data[i].latitude, data[i].longitude]).addTo(mymap);
+                }
             }
         }
 

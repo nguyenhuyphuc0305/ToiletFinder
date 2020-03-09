@@ -12,7 +12,7 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     accessToken: 'pk.eyJ1IjoiY2h1Y3VueGFuaDJrIiwiYSI6ImNrNzJ0YmdjcjA1dmozZ24xbjduMWcxNWYifQ.FQ24h62XknEmmVXQ_9k6gg'
 }).addTo(mymap);
 
-getLoc.addEventListener("click", () => {
+$(document).ready(() => {
     if (!navigator.geolocation) {
         console.log("Navigator is not supported in this browser.");
         return 
@@ -21,11 +21,15 @@ getLoc.addEventListener("click", () => {
         lat = position.coords.latitude;
         lng = position.coords.longitude;
 
-        let xhr = new XMLHttpRequest();
+        mymap.panTo(new L.LatLng(lat, lng));
+
+        let xhr = new XMLHttpRequest()
         xhr.onreadystatechange = () => {
             if (xhr.readyState == 4 && xhr.status == 200) {
-                let data = JSON.parse(xhr.responseText);
-                console.log(data);
+                let data = JSON.parse(xhr.responseText)
+                for (let i = 0; i < data.length; i++) {
+                    let marker = L.marker([data[i].latitude, data[i].longitude]).addTo(mymap);
+                }
             }
         }
 

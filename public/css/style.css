@@ -1,3 +1,147 @@
+/* ----------------------------------------------- */
+/* BASIC SETUP */
+/* ----------------------------------------------- */
+
+* {
+    margin:0;
+    padding:0;
+    border:0;
+    vertical-align:baseline;
+    box-sizing: border-box;
+    text-rendering: optimizeLegibility;
+    font-size: 11pt;
+}
+
+/* ----------------------------------------------- */
+/* REUSABLE COMPONENTS */
+/* ----------------------------------------------- */
+
+body {
+    overflow: hidden;
+}
+
+h3 {
+    word-spacing: 4px;
+    letter-spacing: 1px;
+}
+
+h4 {
+    word-spacing: 2px;
+    letter-spacing: 1px;
+}
+
 #mapid {
     height: 100vh;
 }
+
+.location {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #f0f2fa;
+}
+
+.location-image {
+    height: 240px;
+}
+
+.location-image img {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.location-comment {
+    flex: 1;
+}
+
+.containerdiv {
+    position: relative;
+    width: 100px;
+} 
+
+.cornerimage {
+    border: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+} 
+
+.containerdiv img {
+     max-width: 100px;
+}
+
+.cornerimage img {
+    max-width: 100px;
+}
+
+.section-divider {
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.comments-container {
+    height: 300px;
+    max-height: 300px;
+    overflow-y: scroll;
+}
+
+.comments-container::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+.comments-container::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: rgba(0,0,0,0.1);
+  }
+.comments-container::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    background: rgba(0,0,0,0.2);
+  }
+.comments-container::-webkit-scrollbar-thumb:hover{
+  	background: rgba(0,0,0,0.4);
+  }
+.comments-container::-webkit-scrollbar-thumb:active{
+  	background: rgba(0,0,0,.9);
+  }
+
+.comment-block {
+    background-color: #fff;
+    display: table-cell;
+    vertical-align: top;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.08);
+    width: 50%;
+}
+
+.bottom-comment {
+    color: #acb4c2;
+    font-size: 10pt;
+}
+
+.add-comment {
+    padding-top: 20px;
+}
+
+.add-comment .comment-block form {
+    text-align: right;
+}
+
+.add-comment .comment-block textarea::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+.add-comment .comment-block textarea::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: rgba(0,0,0,0.1);
+  }
+.add-comment .comment-block textarea::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    background: rgba(0,0,0,0.2);
+  }
+.add-comment .comment-block textarea::-webkit-scrollbar-thumb:hover{
+  	background: rgba(0,0,0,0.4);
+  }
+.add-comment .comment-block textarea::-webkit-scrollbar-thumb:active{
+  	background: rgba(0,0,0,.9);
+  }

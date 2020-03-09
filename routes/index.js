@@ -2,6 +2,7 @@ const express = require("express")
 const path = require("path")
 const request = require("request")
 
+
 const router = express.Router()
 
 const mysql = require('mysql');
@@ -14,7 +15,7 @@ const db = mysql.createConnection({
 
 db.connect((err) => {
 	if (err) throw err;
-	console.log('Connected to tolietdb')
+	console.log('Connected to toiletdb')
 });
 
 router.get("/getLoc", (req, res) => {
@@ -33,5 +34,17 @@ router.get("/testing", (req, res) =>{
 	});
 	res.send();
 });
+
+router.post("/review", (req, res) =>{
+	var id = req.query.id
+	var comment = req.query.comment
+	db.connect(function(err, connection){
+		db.query('INSERT INTO reviews VALUES (' + id + ', 1, "'+comment+'", 0, 0);', function (error, results, fields){
+			console.log(error);
+		});
+	});
+	res.end(JSON.stringify(req.body.comment));
+})
+
 
 module.exports = router;

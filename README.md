@@ -10,3 +10,6 @@ Run the server:
 npm start
 ```
 Have fun, Phuc~~
+
+```
+docker exec -it mysql mysql -uroot -p

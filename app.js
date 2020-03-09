@@ -1,10 +1,7 @@
-const express = require("express")
-
-const app = express()
+const express = require("express");
+const app = express();
 const port = 8080;
 
-app.use(express.static("public"))
-
-app.use(require("./routes"))
-
-app.listen(port, () => console.log(`Listening on port ${port}!`))
+app.use(express.static("public"));
+app.use(require("./routes"));
+app.listen(port, () => console.log(`Listening on port ${port}!`));

@@ -1,6 +1,10 @@
 var getLoc = document.getElementById("getLoc");
 let lat, lng;
 
+function loaded(){
+    getLocation();
+}
+
 let mymap = L.map('mapid').setView([51.505, -0.09], 13);
 
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -12,7 +16,7 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     accessToken: 'pk.eyJ1IjoiY2h1Y3VueGFuaDJrIiwiYSI6ImNrNzJ0YmdjcjA1dmozZ24xbjduMWcxNWYifQ.FQ24h62XknEmmVXQ_9k6gg'
 }).addTo(mymap);
 
-$(document).ready(() => {
+function getLocation(){
     if (!navigator.geolocation) {
         console.log("Navigator is not supported in this browser.");
         return 
@@ -27,6 +31,7 @@ $(document).ready(() => {
         xhr.onreadystatechange = () => {
             if (xhr.readyState == 4 && xhr.status == 200) {
                 let data = JSON.parse(xhr.responseText)
+                console.log(data)
                 for (let i = 0; i < data.length; i++) {
                     let marker = L.marker([data[i].latitude, data[i].longitude]).addTo(mymap);
                 }
@@ -38,4 +43,10 @@ $(document).ready(() => {
         xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         xhr.send();
     });
-});
+};
+
+
+
+window.onload = function(){
+    loaded()
+};

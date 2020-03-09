@@ -4,12 +4,13 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "nodemon app.js"
   },
   "dependencies": {
     "express": "^4.17.1",
     "jquery": "^3.4.1",
     "mysql": "^2.18.1",
+    "nodemon": "^2.0.2",
     "request": "^2.88.2"
   },
   "author": "",

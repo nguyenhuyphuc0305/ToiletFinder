@@ -1,3 +1,4 @@
+var getLoc = document.getElementById("getLoc");
 let lat, lng;
 
 let mymap = L.map('mapid').setView([51.505, -0.09], 13);
@@ -13,12 +14,12 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 
 $(document).ready(() => {
     if (!navigator.geolocation) {
-        console.log("Navigator is not supported in this browser.")
+        console.log("Navigator is not supported in this browser.");
         return 
     }
     navigator.geolocation.getCurrentPosition((position) => {
-        lat = position.coords.latitude
-        lng = position.coords.longitude
+        lat = position.coords.latitude;
+        lng = position.coords.longitude;
 
         mymap.panTo(new L.LatLng(lat, lng));
 
@@ -32,9 +33,9 @@ $(document).ready(() => {
             }
         }
 
-        var URL = "./getLoc?lat=" + lat + "&lng=" + lng
-        xhr.open("GET", URL, true)
-        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8")
-        xhr.send() 
-    })
-})
+        var query = "./getLoc?lat=" + lat + "&lng=" + lng;
+        xhr.open("GET", query, true);
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xhr.send();
+    });
+});

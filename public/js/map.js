@@ -2,6 +2,7 @@ var getLoc = document.getElementById("getLoc");
 let lat, lng;
 
 function loaded(){
+    console.log("hi")
     getLocation();
 }
 
@@ -44,8 +45,6 @@ function getLocation(){
         xhr.send();
     });
 };
-
-
 
 window.onload = function(){
     loaded()

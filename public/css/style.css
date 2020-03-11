@@ -38,7 +38,7 @@ h4 {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    background-color: #f0f2fa;
+    background-color: rgb(242, 236, 250);
 }
 
 .location-image {
@@ -111,7 +111,7 @@ h4 {
     vertical-align: top;
     border-radius: 5px;
     box-shadow: 0 1px 3px 0 rgba(0,0,0,0.08);
-    width: 50%;
+    width:40%;
 }
 
 .bottom-comment {
@@ -144,4 +144,45 @@ h4 {
   }
 .add-comment .comment-block textarea::-webkit-scrollbar-thumb:active{
   	background: rgba(0,0,0,.9);
-  }
+}
+
+/* ----------------------------------------------- */
+/* SPACING */
+/* ----------------------------------------------- */
+
+.px-0 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.px-3 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+}
+
+.px-4 {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+}
+
+.py-3 {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+}
+
+.mb-0 {
+    margin-bottom: 0 !important;
+}
+
+.mb-1 {
+    margin-bottom: 0.25rem !important;
+}
+
+.mt-1 {
+    margin-top: 0.25rem !important;
+}
+
+.mr-3 {
+    margin-right: 1rem !important;
+}
+

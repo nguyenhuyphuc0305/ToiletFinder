@@ -35,11 +35,12 @@ router.get("/getImg", (req, res) => {
 	})
 })
 
-router.post("/review", (req, res) =>{
+router.post("/comment", (req, res) =>{
 	var id = req.query.id
 	var comment = req.query.comment
+	var time = req.query.time
 	db.connect(function(err, connection){
-		db.query('INSERT INTO reviews (t_id, t_access, t_comment) VALUES (' + id + ', 1, "'+comment+'");', function (error, results, fields){
+		db.query('INSERT INTO reviews (t_id, t_access, t_comment, t_time) VALUES (' + id + ', 1, "'+comment+'", "'+time+'");', function (error, results, fields){
 			console.log(error);
 			console.log(results)
 		});

@@ -3,7 +3,6 @@ let lat, lng;
 let data;
 
 function loaded(){
-    console.log("hi")
     getLocation();
 }
 

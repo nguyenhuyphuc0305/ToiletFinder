@@ -4,6 +4,7 @@ let selectedID;
 let data;
 
 function loaded(){
+    console.log("hi")
     getLocation();
 }
 
@@ -67,8 +68,6 @@ function getLocation(){
         xhr.send();
     });
 };
-
-
 
 window.onload = function(){
     loaded()

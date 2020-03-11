@@ -35,24 +35,16 @@ router.get("/getImg", (req, res) => {
 	})
 })
 
-// router.get("/testing", (req, res) =>{
-// 	db.connect(function(err, connection){
-// 		db.query('SELECT * FROM `reviews`', function (error, results, fields){
-// 			console.log(results);
-// 		});
-// 	});
-// 	res.send();
-// });
-
 router.post("/review", (req, res) =>{
 	var id = req.query.id
 	var comment = req.query.comment
 	db.connect(function(err, connection){
-		db.query('INSERT INTO reviews VALUES (' + id + ', 1, "'+comment+'", 0, 0);', function (error, results, fields){
+		db.query('INSERT INTO reviews (t_id, t_access, t_comment) VALUES (' + id + ', 1, "'+comment+'");', function (error, results, fields){
 			console.log(error);
+			console.log(results)
 		});
 	});
-	res.end(JSON.stringify(req.body.comment));
+	res.end();
 })
 
 

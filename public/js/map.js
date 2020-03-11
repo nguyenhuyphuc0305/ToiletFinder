@@ -1,6 +1,5 @@
 var getLoc = document.getElementById("getLoc");
 let lat, lng;
-let selectedID;
 let data;
 
 function loaded(){

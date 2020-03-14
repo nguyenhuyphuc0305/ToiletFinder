@@ -186,3 +186,27 @@ h4 {
     margin-right: 1rem !important;
 }
 
+/* ----------------------------------------------- */
+/* SIDEBAR */
+/* ----------------------------------------------- */
+
+.wrapper {
+    display: flex;
+    width: 100%;
+}
+
+.container-fluid {
+    background-color: #F2ECFA;
+}
+
+#expand-btn {
+    background-color: #F2ECFA;
+    border: 1px solid #d9d9d9;
+}
+
+/* btn.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    left: 0;
+} */

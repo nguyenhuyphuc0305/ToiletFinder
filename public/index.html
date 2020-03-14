@@ -16,8 +16,11 @@
 </head>
 <body>
     <div class="container-fluid">
-        <div class="row">
-            <div class="location col-md-3 px-0" >
+        <div class="wrapper row">
+            <button id="expand-btn" type="button" class="btn" data-toggle="collapse" data-target="#collapseBar" aria-expanded="false" aria-controls="collapseBar">
+                <span>></span>
+            </button>
+            <div class="collapse location col-md-3 px-0" id="collapseBar">
                 <div class="location-image">
                     <img id="location-img" src="./images/test_image.jpg" alt="test_image">
                 </div>
@@ -88,7 +91,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-9" id="mapid"></div>
+            <div class="col-md-12" id="mapid"></div>
         </div>
     </div> 
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>

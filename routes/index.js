@@ -35,15 +35,28 @@ router.get("/getImg", (req, res) => {
 	})
 })
 
-router.post("/review", (req, res) =>{
+router.get("/getComments", (req, res) => {
 	var id = req.query.id
-	var comment = req.query.comment
 	db.connect(function(err, connection){
-		db.query('INSERT INTO reviews VALUES (' + id + ', 1, "'+comment+'", 0, 0);', function (error, results, fields){
-			console.log(error);
+		db.query('SELECT t_comment, t_time FROM reviews where t_id = '+id+ ';', function (error, results, fields){
+			res.type("application/json")
+			res.send(JSON.parse(JSON.stringify(results)));
 		});
 	});
-	res.end(JSON.stringify(req.body.comment));
+})
+
+
+router.post("/comment", (req, res) =>{
+	var id = req.query.id
+	var comment = req.query.comment
+	var time = req.query.time
+	db.connect(function(err, connection){
+		db.query('INSERT INTO reviews (t_id, t_access, t_comment, t_time) VALUES (' + id + ', 1, "'+comment+'", "'+time+'");', function (error, results, fields){
+			console.log(error);
+			console.log(results)
+		});
+	});
+	res.end();
 })
 
 

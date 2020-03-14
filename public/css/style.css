@@ -77,12 +77,12 @@ h4 {
 }
 
 .section-divider {
-    border-bottom: 1px solid #e6e6e6;
+    border-bottom: 1px solid #d9d9d9;
 }
 
 .comments-container {
     height: 300px;
-    max-height: 300px;
+    max-height: 30%;
     overflow-y: scroll;
 }
 
@@ -204,6 +204,9 @@ h4 {
     border: 1px solid #d9d9d9;
 }
 
+#direction-box {
+    height: 30%;
+}
 /* btn.sticky {
     position: -webkit-sticky;
     position: sticky;

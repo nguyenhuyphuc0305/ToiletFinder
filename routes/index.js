@@ -34,7 +34,7 @@ router.get("/getImg", (req, res) => {
 		res.send(JSON.parse(body).photos.photo)
 	})
 })
-// /getComment?id=1209389
+
 router.get("/getComments", (req, res) => {
 	var id = req.query.id
 	db.connect(function(err, connection){

@@ -18,8 +18,11 @@
 </head>
 <body>
     <div class="container-fluid">
-        <div class="row">
-            <div class="location col-md-3 px-0" >
+        <div class="wrapper row">
+            <button id="expand-btn" type="button" class="btn" data-toggle="collapse" data-target="#collapseBar" aria-expanded="false" aria-controls="collapseBar">
+                <span>></span>
+            </button>
+            <div class="collapse location col-md-3 px-0" id="collapseBar">
                 <div class="location-image">
                     <img id="location-img" src="./images/test_image.jpg" alt="test_image">
                 </div>
@@ -31,7 +34,7 @@
                                 <p>3.9</p>
                             </div>
                         </div>
-                        <div class="mt-1">
+                        <div class="mt-1" id="direction-box">
                             <p class="mb-1">Direction: <span id="location-direction">"Go in through the bookstore, exit the bookstore into the student center, there will be 4 couch/tables to your left, behind those are two unisex accessible stalls."</span></p>
                         </div>
                     </div>
@@ -42,7 +45,7 @@
                 <div class="location-comment">
                     <div class="px-4 py-3" style="height: 100%;">
                         <h4>Comment</h4>
-                        <div class="comments-container" id="comments">
+                        <div class="comments-container" id="comments" style="height: 30%;">
                             <div class="comment-block px-3 py-3 mb-3">
                                 <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto temporibus iste nostrum dolorem natus recusandae incidunt voluptatum. Eligendi voluptatum ducimus architecto tempore, quaerat explicabo veniam fuga corporis totam reprehenderit quasi
                                 sapiente modi tempora at perspiciatis mollitia, dolores voluptate. Cumque, corrupti?</p>
@@ -76,7 +79,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-9" id="mapid"></div>
+            <div class="col-md-12" id="mapid"></div>
         </div>
     </div> 
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>

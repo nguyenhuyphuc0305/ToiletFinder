@@ -1,10 +1,7 @@
 var getLoc = document.getElementById("getLoc");
+var com = document.getElementById("comments");
 let lat, lng;
 let data;
-
-function loaded(){
-    getLocation();
-}
 
 let mymap = L.map('mapid').setView([51.505, -0.09], 16);
 
@@ -23,6 +20,7 @@ function chooseMarker(data) {
     document.getElementById("location-direction").innerHTML = data.directions
     console.log(data)
     let xhr = new XMLHttpRequest()
+    xhr.addEventListener("load", pullComments);
     xhr.onreadystatechange = () => {
         if (xhr.readyState == 4 && xhr.status == 200) {
             let imgSet = JSON.parse(xhr.responseText)
@@ -31,11 +29,31 @@ function chooseMarker(data) {
             img.src = "https://www.flickr.com/photos/" + imgSet[0].owner + "/" + imgSet[0].id
         }
     }
-
     let query = "./getImg?lat=" + lat + "&lng=" + lng;
     xhr.open("GET", query, true);
     xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xhr.send();
+}
+
+function pullComments(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function(){
+        if(xhttp.readyState == 4 && xhttp.status == 200){
+            const commentData = JSON.parse(xhttp.responseText);
+            var html = "";
+            for (i = 0; i < commentData.length; i++){
+                html += '<div class="comment-block px-3 py-3 mb-3">'
+                    + '<p class="comment-text">' + commentData[i].t_comment + '</p>'
+                    + '<div class="bottom-comment">'
+                    + '<div class="comment-date">' + commentData[i].t_time + '</div></div></div><br>'
+            }
+            com.innerHTML = html;
+        }
+    }
+    let url = "/getComments?id="+selectedID;
+    xhttp.open("GET", url, true);
+    xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhttp.send();
 }
 
 function getLocation(){
@@ -43,6 +61,7 @@ function getLocation(){
         console.log("Navigator is not supported in this browser.");
         return 
     }
+    console.log("hello")
     navigator.geolocation.getCurrentPosition((position) => {
         lat = position.coords.latitude;
         lng = position.coords.longitude;
@@ -67,6 +86,8 @@ function getLocation(){
     });
 };
 
-window.onload = function(){
-    loaded()
-};
+// document.onload = function(){
+//     getLocation();
+// };
+
+getLocation();

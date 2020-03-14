@@ -34,6 +34,17 @@ router.get("/getImg", (req, res) => {
 		res.send(JSON.parse(body).photos.photo)
 	})
 })
+// /getComment?id=1209389
+router.get("/getComments", (req, res) => {
+	var id = req.query.id
+	db.connect(function(err, connection){
+		db.query('SELECT t_comment, t_time FROM reviews where t_id = '+id+ ';', function (error, results, fields){
+			res.type("application/json")
+			res.send(JSON.parse(JSON.stringify(results)));
+		});
+	});
+})
+
 
 router.post("/comment", (req, res) =>{
 	var id = req.query.id

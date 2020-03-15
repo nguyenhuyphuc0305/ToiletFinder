@@ -213,3 +213,7 @@ h4 {
     top: 0;
     left: 0;
 } */
+
+#comment-hide {
+    visibility: hidden;
+}

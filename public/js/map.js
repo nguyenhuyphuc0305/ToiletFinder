@@ -1,9 +1,13 @@
 var getLoc = document.getElementById("getLoc");
 var com = document.getElementById("comments");
+var comhide = document.getElementById("comment-hide");
+
 let lat, lng;
 let data;
 
 function chooseMarker(data) {
+    console.log("test")
+    comhide.style.visibility = "visible";
     selectedID = data.id
     document.getElementById("location-name").innerHTML = data.name
     document.getElementById("location-direction").innerHTML = data.directions
@@ -24,13 +28,13 @@ function chooseMarker(data) {
     xhr.send();
 }
 
-function pullComments(){
+function pullComments() {
     var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function(){
-        if(xhttp.readyState == 4 && xhttp.status == 200){
+    xhttp.onreadystatechange = function () {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
             const commentData = JSON.parse(xhttp.responseText);
             var html = "";
-            for (i = 0; i < commentData.length; i++){
+            for (i = 0; i < commentData.length; i++) {
                 html += '<div class="comment-block px-3 py-3 mb-3">'
                     + '<p class="comment-text">' + commentData[i].t_comment + '</p>'
                     + '<div class="bottom-comment">'
@@ -39,16 +43,16 @@ function pullComments(){
             com.innerHTML = html;
         }
     }
-    let url = "/getComments?id="+selectedID;
+    let url = "/getComments?id=" + selectedID;
     xhttp.open("GET", url, true);
     xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xhttp.send();
 }
 
-function getLocation(){
+function getLocation() {
     if (!navigator.geolocation) {
         console.log("Navigator is not supported in this browser.");
-        return 
+        return
     }
     console.log("hello")
     navigator.geolocation.getCurrentPosition((position) => {
@@ -74,7 +78,7 @@ function getLocation(){
             accessToken: 'pk.eyJ1IjoiY2h1Y3VueGFuaDJrIiwiYSI6ImNrNzJ0YmdjcjA1dmozZ24xbjduMWcxNWYifQ.FQ24h62XknEmmVXQ_9k6gg'
         }).addTo(mymap);
 
-        L.marker([lat, lng], {icon: mainLocationIcon}).addTo(mymap)
+        L.marker([lat, lng], { icon: mainLocationIcon }).addTo(mymap)
 
         let xhr = new XMLHttpRequest()
         xhr.onreadystatechange = () => {
@@ -94,11 +98,11 @@ function getLocation(){
     });
 };
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.fixed-action-btn');
     var instances = M.FloatingActionButton.init(elems, {
-      direction: 'left'
+        direction: 'left'
     });
-  });
+});
 
 getLocation();

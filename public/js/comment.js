@@ -46,7 +46,3 @@ function pullComments(){
     xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xhttp.send();
 }
-
-document.onload = function(){
-	// pullComments();
-};
